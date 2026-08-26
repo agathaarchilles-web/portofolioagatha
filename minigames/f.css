@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #050805;
+  font-family: 'Share Tech Mono', monospace;
+  color: #eafff0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-container {
+  background: #0a0f0a;
+  border: 2px solid #39ff6a;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 700px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(57,255,106,0.3);
+}
+
+h2 {
+  color: #39ff6a;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(57,255,106,0.5);
+}
+
+.subtitle {
+  color: #1c8a3d;
+  margin-bottom: 20px;
+}
+
+.typing-info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  color: #39ff6a;
+  font-size: 0.9rem;
+}
+
+.target-text {
+  background: #020402;
+  border: 1px solid #0d3b1f;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.target-text .correct {
+  color: #39ff6a;
+}
+
+.target-text .wrong {
+  color: #ff3355;
+  background: rgba(255,51,85,0.2);
+}
+
+#typingInput {
+  width: 100%;
+  background: #020402;
+  border: 1px solid #39ff6a;
+  border-radius: 8px;
+  padding: 15px;
+  color: #eafff0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.1rem;
+  outline: none;
+  transition: all 0.3s;
+}
+
+#typingInput:focus {
+  box-shadow: 0 0 20px rgba(57,255,106,0.3);
+}
+
+.game-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.game-overlay h2 {
+  color: #39ff6a;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.game-overlay p {
+  color: #eafff0;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.game-overlay button,
+.game-overlay a {
+  background: #39ff6a;
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.game-overlay button:hover,
+.game-overlay a:hover {
+  background: #2ecc71;
+  transform: scale(1.05);
+}

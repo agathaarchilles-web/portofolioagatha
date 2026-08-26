@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake 01</title>
+  <link rel="stylesheet" href="e.css">
+</head>
+<body>
+  <canvas id="gameCanvas" width="400" height="400" tabindex="0"></canvas>
+  
+  <div class="game-hud">
+    <div>SKOR: <span id="score">0</span></div>
+    <div>LEVEL: <span id="level">1</span></div>
+  </div>
+  
+  <div class="game-overlay" id="gameOverlay">
+    <h2>GAME OVER</h2>
+    <p>Skor: <span id="finalScore">0</span></p>
+    <button onclick="restartGame()">MAIN LAGI</button>
+    <a href="../index.html">KEMBALI</a>
+  </div>
+  
+  <script src="e.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #050805;
+  font-family: 'Share Tech Mono', monospace;
+  color: #eafff0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-container {
+  background: #0a0f0a;
+  border: 2px solid #39ff6a;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(57,255,106,0.3);
+}
+
+h2 {
+  color: #39ff6a;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(57,255,106,0.5);
+}
+
+.subtitle {
+  color: #1c8a3d;
+  margin-bottom: 20px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  color: #39ff6a;
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.grid-cell {
+  aspect-ratio: 1;
+  background: #020402;
+  border: 2px solid #0d3b1f;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.grid-cell.active {
+  background: #39ff6a;
+  border-color: #39ff6a;
+  box-shadow: 0 0 20px rgba(57,255,106,0.5);
+}
+
+.grid-cell:hover {
+  border-color: #1c8a3d;
+}
+
+.game-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.game-overlay h2 {
+  color: #ff3355;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.game-overlay p {
+  color: #eafff0;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.game-overlay button,
+.game-overlay a {
+  background: #39ff6a;
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.game-overlay button:hover,
+.game-overlay a:hover {
+  background: #2ecc71;
+  transform: scale(1.05);
+}

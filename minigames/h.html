@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess Number</title>
+  <link rel="stylesheet" href="h.css">
+</head>
+<body>
+  <div class="game-container">
+    <h2>GUESS NUMBER</h2>
+    <p class="subtitle">Tebak angka rahasia 1-100!</p>
+    
+    <div class="game-info">
+      <span>Percobaan: <span id="attempts">0</span></span>
+      <span>Skor: <span id="score">0</span></span>
+    </div>
+    
+    <div class="guess-display">
+      <p id="hint" class="hint">Mulai menebak!</p>
+      <div class="range-display">
+        <span id="lowRange">1</span>
+        <span class="range-sep">-</span>
+        <span id="highRange">100</span>
+      </div>
+    </div>
+    
+    <div class="input-section">
+      <input type="number" id="guessInput" min="1" max="100" placeholder="Tebak angka (1-100)">
+      <button onclick="makeGuess()">TEBAK!</button>
+    </div>
+    
+    <div class="history">
+      <p>Riwayat Tebakan:</p>
+      <div id="guessHistory"></div>
+    </div>
+    
+    <div class="game-overlay" id="gameOverlay">
+      <h2>BENAR!</h2>
+      <p>Angka: <span id="answer">?</span> | Percobaan: <span id="finalAttempts">0</span></p>
+      <button onclick="restartGame()">MAIN LAGI</button>
+      <a href="../index.html">KEMBALI</a>
+    </div>
+  </div>
+  
+  <script src="h.js"></script>
+</body>
+</html>

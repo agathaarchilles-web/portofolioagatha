@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Test</title>
+  <link rel="stylesheet" href="f.css">
+</head>
+<body>
+  <div class="game-container">
+    <h2>TYPING SPEED</h2>
+    <p class="subtitle">Ketik teks secepat mungkin!</p>
+    
+    <div class="typing-info">
+      <span>Waktu: <span id="timer">60</span>s</span>
+      <span>WPM: <span id="wpm">0</span></span>
+      <span>Benar: <span id="correct">0</span></span>
+      <span>Salah: <span id="wrong">0</span></span>
+    </div>
+    
+    <div id="targetText" class="target-text"></div>
+    
+    <input type="text" id="typingInput" placeholder="Ketik di sini..." autocomplete="off">
+    
+    <div class="game-overlay" id="gameOverlay">
+      <h2>SELESAI!</h2>
+      <p>WPM: <span id="finalWpm">0</span> | Benar: <span id="finalCorrect">0</span> | Salah: <span id="finalWrong">0</span></p>
+      <button onclick="restartGame()">COBA LAGI</button>
+      <a href="../index.html">KEMBALI</a>
+    </div>
+  </div>
+  
+  <script src="f.js"></script>
+</body>
+</html>
