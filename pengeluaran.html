@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catatan Pengeluaran</title>
+  <link rel="stylesheet" href="a.css">
+</head>
+<body>
+
+  <canvas id="matrix-rain"></canvas>
+
+  <div class="wrap">
+    <a href="index.html" class="back-link">← Kembali ke Portofolio</a>
+
+    <header>
+      <h1>Catatan Kantong</h1>
+      <div class="tanggal" id="tanggalHariIni"></div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active mode-uang" id="tabUang" onclick="gantiTab('uang')">Uang</button>
+      <button class="tab-btn mode-kuota" id="tabKuota" onclick="gantiTab('kuota')">Kuota internet</button>
+    </div>
+
+    <!-- ===== UANG ===== -->
+    <section id="secUang" class="active mode-uang">
+      <div class="ringkasan">
+        <p class="label">Saldo bulan ini</p>
+        <p class="angka" id="saldoBulanIni">Rp0</p>
+        <div class="ringkasan-grid">
+          <div>
+            <p class="mini-label">Pemasukan</p>
+            <p class="mini-val" id="totalMasuk" style="color:var(--accent);">Rp0</p>
+          </div>
+          <div>
+            <p class="mini-label">Pengeluaran</p>
+            <p class="mini-val" id="totalKeluar" style="color:var(--danger);">Rp0</p>
+          </div>
+        </div>
+      </div>
+
+      <form onsubmit="simpanUang(event)">
+        <h2>Tambah catatan</h2>
+        <div class="jenis-pilih">
+          <div class="jenis-btn pilih-uang aktif" id="btnKeluar" onclick="pilihJenisUang('keluar')">Pengeluaran</div>
+          <div class="jenis-btn pilih-uang" id="btnMasuk" onclick="pilihJenisUang('masuk')">Pemasukan</div>
+        </div>
+        <div class="baris">
+          <div>
+            <label for="uangJumlah">Jumlah (Rp)</label>
+            <input type="number" id="uangJumlah" placeholder="contoh: 15000" required min="0">
+          </div>
+          <div>
+            <label for="uangKategori">Kategori</label>
+            <select id="uangKategori">
+              <option>Makan</option><option>Transport</option><option>Jajan</option>
+              <option>Pulsa/Kuota</option><option>Tagihan</option><option>Belanja</option>
+              <option>Gaji/THR</option><option>Lainnya</option>
+            </select>
+          </div>
+        </div>
+        <div class="baris">
+          <div>
+            <label for="uangKet">Keterangan</label>
+            <input type="text" id="uangKet" placeholder="contoh: makan siang">
+          </div>
+          <div>
+            <label for="uangTanggal">Tanggal</label>
+            <input type="date" id="uangTanggal" required>
+          </div>
+        </div>
+        <button type="submit" class="simpan">Simpan catatan</button>
+      </form>
+
+      <div class="riwayat">
+        <h2>Riwayat</h2>
+        <div class="filter-cepat">
+          <button class="aktif" data-f="semua" onclick="filterUang('semua', this)">Semua</button>
+          <button data-f="keluar" onclick="filterUang('keluar', this)">Keluar</button>
+          <button data-f="masuk" onclick="filterUang('masuk', this)">Masuk</button>
+        </div>
+        <div id="listUang"></div>
+      </div>
+    </section>
+
+    <!-- ===== KUOTA ===== -->
+    <section id="secKuota" class="mode-kuota">
+      <div class="ringkasan">
+        <p class="label">Sisa kuota (perkiraan)</p>
+        <p class="angka" id="sisaKuota">0 GB</p>
+        <div class="ringkasan-grid">
+          <div>
+            <p class="mini-label">Kuota awal</p>
+            <p class="mini-val" id="kuotaAwal" style="color:var(--accent);">0 GB</p>
+          </div>
+          <div>
+            <p class="mini-label">Terpakai</p>
+            <p class="mini-val" id="kuotaTerpakai" style="color:var(--ink-soft);">0 GB</p>
+          </div>
+        </div>
+      </div>
+
+      <form onsubmit="simpanKuotaAwal(event)">
+        <h2>Atur paket kuota</h2>
+        <div class="baris">
+          <div>
+            <label for="kuotaTotal">Total kuota baru (GB)</label>
+            <input type="text" id="kuotaTotal" placeholder="contoh: 25 atau 2,5" required>
+          </div>
+          <div>
+            <label for="kuotaTglBeli">Tanggal beli</label>
+            <input type="date" id="kuotaTglBeli" required>
+          </div>
+        </div>
+        <button type="submit" class="simpan">Atur sebagai kuota aktif</button>
+      </form>
+
+      <form onsubmit="simpanPakaiKuota(event)">
+        <h2>Catat pemakaian</h2>
+        <div class="baris">
+          <div>
+            <label for="pakaiJumlah">Kuota terpakai (GB)</label>
+            <input type="text" id="pakaiJumlah" placeholder="contoh: 1.5 atau 1,5" required>
+          </div>
+          <div>
+            <label for="pakaiKet">Untuk apa</label>
+            <select id="pakaiKet">
+              <option>Streaming</option><option>Media sosial</option>
+              <option>Chat/browsing</option><option>Kerja/kuliah</option>
+              <option>Download</option><option>Lainnya</option>
+            </select>
+          </div>
+        </div>
+        <div class="baris">
+          <div>
+            <label for="pakaiTanggal">Tanggal</label>
+            <input type="date" id="pakaiTanggal" required>
+          </div>
+        </div>
+        <button type="submit" class="simpan">Catat pemakaian</button>
+      </form>
+
+      <div class="riwayat">
+        <h2>Riwayat kuota</h2>
+        <div id="listKuota"></div>
+      </div>
+    </section>
+
+    <footer>Data tersimpan otomatis di perangkat ini.</footer>
+  </div>
+
+  <script src="b.js"></script>
+</body>
+</html>

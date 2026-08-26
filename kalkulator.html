@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator — Matrix</title>
+  <link rel="stylesheet" href="kalkulator.css">
+</head>
+<body>
+
+  <canvas id="matrix-rain"></canvas>
+
+  <div class="wrap">
+    <a href="index.html" class="back-link">← Kembali ke Portofolio</a>
+
+    <header>
+      <h1>Kalkulator — Matrix</h1>
+      <div class="tanggal" id="tanggalHariIni"></div>
+    </header>
+
+    <!-- TAB NAVIGASI -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="biasa" onclick="gantiTab('biasa')">Biasa</button>
+      <button class="tab-btn" data-tab="suhu" onclick="gantiTab('suhu')">Suhu</button>
+      <button class="tab-btn" data-tab="ukuran" onclick="gantiTab('ukuran')">Ukuran</button>
+      <button class="tab-btn" data-tab="pemrograman" onclick="gantiTab('pemrograman')">Pemrograman</button>
+    </div>
+
+    <!-- ===== KALKULATOR BIASA (EXPERT) ===== -->
+    <section id="tab-biasa" class="tab-content active">
+      <div class="calc-box">
+        <input type="text" id="calcDisplay" readonly placeholder="0">
+        <div class="calc-grid expert-grid">
+
+          <!-- Baris 1: Fungsi lanjutan -->
+          <button onclick="tekan('Math.PI')" class="func">π</button>
+          <button onclick="tekan('Math.E')" class="func">e</button>
+          <button onclick="tekan('Math.sin(')" class="func">sin</button>
+          <button onclick="tekan('Math.cos(')" class="func">cos</button>
+
+          <!-- Baris 2: Fungsi lanjutan -->
+          <button onclick="tekan('Math.tan(')" class="func">tan</button>
+          <button onclick="tekan('Math.log(')" class="func">log</button>
+          <button onclick="tekan('Math.LN')" class="func">ln</button>
+          <button onclick="tekan('Math.sqrt(')" class="func">√</button>
+
+          <!-- Baris 3: Angka & operator -->
+          <button onclick="tekan('7')">7</button>
+          <button onclick="tekan('8')">8</button>
+          <button onclick="tekan('9')">9</button>
+          <button onclick="tekan('/')" class="operator">÷</button>
+
+          <!-- Baris 4 -->
+          <button onclick="tekan('4')">4</button>
+          <button onclick="tekan('5')">5</button>
+          <button onclick="tekan('6')">6</button>
+          <button onclick="tekan('*')" class="operator">×</button>
+
+          <!-- Baris 5 -->
+          <button onclick="tekan('1')">1</button>
+          <button onclick="tekan('2')">2</button>
+          <button onclick="tekan('3')">3</button>
+          <button onclick="tekan('-')" class="operator">−</button>
+
+          <!-- Baris 6 -->
+          <button onclick="tekan('0')">0</button>
+          <button onclick="tekan('.')">.</button>
+          <button onclick="tekan('**')" class="func">xʸ</button>
+          <button onclick="tekan('+')" class="operator">+</button>
+
+          <!-- Baris 7: Tombol tambahan -->
+          <button onclick="tekan('(')" class="func">(</button>
+          <button onclick="tekan(')')" class="func">)</button>
+          <button onclick="tekan('!')" class="func">!</button>
+          <button onclick="tekan('%')" class="func">%</button>
+
+          <!-- Baris 8: Clear & Hapus -->
+          <button onclick="clearDisplay()" class="clear" style="grid-column: span 2;">C</button>
+          <button onclick="hapusSatu()" class="clear" style="grid-column: span 2;">⌫</button>
+
+          <!-- Baris 9: Hasil -->
+          <button onclick="hasil()" class="equals" style="grid-column: span 4;">=</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KALKULATOR SUHU ===== -->
+    <section id="tab-suhu" class="tab-content">
+      <div class="calc-box">
+        <h3>Konversi Suhu</h3>
+        <div class="konversi-grid">
+          <div>
+            <label>Masukkan nilai</label>
+            <input type="number" id="suhuInput" placeholder="0" step="any">
+          </div>
+          <div>
+            <label>Dari</label>
+            <select id="suhuDari">
+              <option value="C">Celsius (°C)</option>
+              <option value="F">Fahrenheit (°F)</option>
+              <option value="K">Kelvin (K)</option>
+              <option value="R">Reamur (°Ré)</option>
+            </select>
+          </div>
+          <div>
+            <label>Ke</label>
+            <select id="suhuKe">
+              <option value="C">Celsius (°C)</option>
+              <option value="F">Fahrenheit (°F)</option>
+              <option value="K">Kelvin (K)</option>
+              <option value="R">Reamur (°Ré)</option>
+            </select>
+          </div>
+          <button onclick="konversiSuhu()" class="simpan">Konversi</button>
+          <div>
+            <label>Hasil</label>
+            <input type="text" id="suhuHasil" readonly placeholder="hasil">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KALKULATOR UKURAN ===== -->
+    <section id="tab-ukuran" class="tab-content">
+      <div class="calc-box">
+        <h3>Konversi Ukuran</h3>
+        <div class="konversi-grid">
+          <div>
+            <label>Masukkan nilai</label>
+            <input type="number" id="ukuranInput" placeholder="0" step="any">
+          </div>
+          <div>
+            <label>Dari</label>
+            <select id="ukuranDari">
+              <option value="km">Kilometer (km)</option>
+              <option value="m">Meter (m)</option>
+              <option value="cm">Centimeter (cm)</option>
+              <option value="mm">Milimeter (mm)</option>
+              <option value="mi">Mil (mi)</option>
+              <option value="ft">Kaki (ft)</option>
+              <option value="in">Inci (in)</option>
+            </select>
+          </div>
+          <div>
+            <label>Ke</label>
+            <select id="ukuranKe">
+              <option value="km">Kilometer (km)</option>
+              <option value="m">Meter (m)</option>
+              <option value="cm">Centimeter (cm)</option>
+              <option value="mm">Milimeter (mm)</option>
+              <option value="mi">Mil (mi)</option>
+              <option value="ft">Kaki (ft)</option>
+              <option value="in">Inci (in)</option>
+            </select>
+          </div>
+          <button onclick="konversiUkuran()" class="simpan">Konversi</button>
+          <div>
+            <label>Hasil</label>
+            <input type="text" id="ukuranHasil" readonly placeholder="hasil">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KALKULATOR PEMROGRAMAN ===== -->
+    <section id="tab-pemrograman" class="tab-content">
+      <div class="calc-box">
+        <h3>Konversi Bilangan</h3>
+        <div class="konversi-grid">
+          <div>
+            <label>Masukkan nilai</label>
+            <input type="text" id="progInput" placeholder="contoh: 255" value="255">
+          </div>
+          <div>
+            <label>Dari basis</label>
+            <select id="progDari">
+              <option value="10">Desimal (10)</option>
+              <option value="2">Biner (2)</option>
+              <option value="8">Oktal (8)</option>
+              <option value="16">Heksadesimal (16)</option>
+            </select>
+          </div>
+          <button onclick="konversiProgram()" class="simpan" style="grid-column: span 2;">Konversi</button>
+          <div style="grid-column: span 2;">
+            <label>Hasil:</label>
+            <div id="progHasil" style="background:#030603; padding:12px; border:1px solid var(--line); border-radius:4px; color:var(--accent); font-family:var(--serif);">
+              <p><strong>Desimal:</strong> <span id="hasilDesimal">255</span></p>
+              <p><strong>Biner:</strong> <span id="hasilBiner">11111111</span></p>
+              <p><strong>Oktal:</strong> <span id="hasilOktal">377</span></p>
+              <p><strong>Heksadesimal:</strong> <span id="hasilHeks">FF</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Data tersimpan di perangkat ini.</footer>
+  </div>
+
+  <script src="kalkulator.js"></script>
+</body>
+</html>

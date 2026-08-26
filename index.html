@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>agatha@portfolio:~$</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="matrix-rain"></canvas>
+
+<!-- ============================================ -->
+<!-- LAYAR LOGIN -->
+<!-- ============================================ -->
+<section id="login-screen">
+  <div class="login-box">
+    <div class="login-topbar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="login-topbar-title">secure_shell — access_control.sys</span>
+    </div>
+
+    <div class="login-body">
+      <p class="boot-line">[SYSTEM] Menginisialisasi protokol otentikasi...</p>
+      <p class="boot-line">[SYSTEM] Enkripsi kanal AES-256 : <span class="ok">OK</span></p>
+      <p class="boot-line">[SYSTEM] Menunggu kredensial operator<span class="cursor-blink">_</span></p>
+
+      <form id="login-form" autocomplete="off">
+        <label for="username">USERNAME</label>
+        <input type="text" id="username" name="username" placeholder="masukkan username" required>
+
+        <label for="password">PASSWORD</label>
+        <input type="password" id="password" name="password" placeholder="masukkan password" required>
+
+        <button type="submit" id="login-btn">
+          <span>AUTENTIKASI</span>
+        </button>
+
+        <p id="login-error"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- PORTOFOLIO (tersembunyi sampai login sukses) -->
+<!-- ============================================ -->
+<main id="portfolio" hidden>
+
+  <nav id="navbar">
+    <span class="nav-logo">&gt; whoami</span>
+    <div class="nav-links">
+      <a href="#biodata" data-decrypt="biodata">BIODATA</a>
+      <a href="#mybini" data-decrypt="mybini">my bini gueh</a>
+      <a href="#cita-cita" data-decrypt="tujuan">tujuan</a>
+      <a href="#sertifikat" data-decrypt="sertifikat">SERTIFIKAT GW</a>
+      <a href="#neo" data-decrypt="neo">neo</a>
+      <a href="#kontak" data-decrypt="kontak">kontak</a>
+    </div>
+    <div class="mode-toggle">
+      <button type="button" id="mode-web-btn" class="mode-active">WEB</button>
+      <button type="button" id="mode-terminal-btn">TERMINAL</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="hero">
+    <p class="hero-eyebrow">[ akses diberikan — selamat datang, Agatha ]</p>
+  </header>
+
+  <!-- BIODATA -->
+  <section id="biodata" class="panel">
+    <h2 class="panel-title" data-decrypt="BIODATA AGATHA">BIODATA AGATHA</h2>
+    <ul class="data-list">
+      <li><span class="key">Nama</span><span class="sep">:</span><span class="val">Muhammad Alaric Arya Sakhi</span></li>
+      <li><span class="key">Kelas</span><span class="sep">:</span><span class="val">X PPLG 1</span></li>
+      <li><span class="key">Tempat, Tanggal Lahir</span><span class="sep">:</span><span class="val">Pekalongan, 10 November 2011</span></li>
+    </ul>
+  </section>
+
+  <!-- MY BINI GUEH -->
+  <section id="mybini" class="panel panel-alt">
+    <h2 class="panel-title" data-decrypt="MY BINI GUEH">MY BINI GUEH</h2>
+    <div class="columbina-wrap">
+      <div class="photo-frame">
+<a href="kalkulator.html">
+    <img src="columbina.jpg" alt="Columbina" id="columbina-photo">
+  </a>
+        <div class="photo-scanline"></div>
+      </div>
+      <ul class="data-list">
+        <li><span class="key">Nama</span><span class="sep">:</span><span class="val">Columbina Hyposelenia</span></li>
+        <li><span class="key">Nama Lain</span><span class="sep">:</span><span class="val">Kuutar / "Damselette"</span></li>
+        <li><span class="key">Jabatan</span><span class="sep">:</span><span class="val">Mantan Fatui Harbinger ke-3, kini Moon Goddess of Nod-Krai</span></li>
+        <li><span class="key">Elemen</span><span class="sep">:</span><span class="val">Hydro</span></li>
+        <li><span class="key">Senjata</span><span class="sep">:</span><span class="val">Catalyst</span></li>
+        <li><span class="key">Asal</span><span class="sep">:</span><span class="val">Nod-Krai, Snezhnaya</span></li>
+        <li><span class="key">Kepribadian</span><span class="sep">:</span><span class="val">Tenang, sedikit nyeleneh, jujur apa adanya — tapi setia pada yang ia percaya</span></li>
+        <li><span class="key">Status</span><span class="sep">:</span><span class="val">Bini sah di dunia fiksi 💙</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CITA-CITA -->
+  <section id="cita-cita" class="panel">
+    <h2 class="panel-title" data-decrypt="CITA CITA">CITA CITA</h2>
+    <div class="terminal-block">
+      <p><span class="prompt">$</span> cat cita-cita.txt</p>
+      <p class="output-line">&gt; Menjadi Ahli Cybersecurity / White Hat Hacker profesional.</p>
+      <p class="output-line">&gt; Menemukan dan melaporkan celah keamanan secara etis, bukan merusak.</p>
+      <p class="output-line">&gt; Membantu instansi & perusahaan membangun sistem yang lebih aman.</p>
+      <p class="output-line">&gt; Terus belajar: pentest, bug bounty, dan digital forensics.</p>
+    </div>
+  </section>
+
+  <!-- SERTIFIKAT GW -->
+  <section id="sertifikat" class="panel panel-alt">
+    <h2 class="panel-title" data-decrypt="Sertifikat">Sertifikat gw </h2>
+    <p class="cert-caption">
+      Klik gambar sertifikat untuk membuka <strong>Catatan Kantong</strong> — manajemen uang & kuota dengan tema Matrix.
+    </p>
+    <div class="photo-frame cert-frame">
+      <a href="pengeluaran.html">
+        <img src="sertifikat-cyber.jpg" alt="Sertifikat Apresiasi Cybersecurity" id="cert-photo">
+      </a>
+      <div class="photo-scanline"></div>
+    </div>
+  </section>
+
+  <!-- CHATBOX NEO -->
+  <section id="neo" class="panel panel-alt">
+    <h2 class="panel-title" data-decrypt="NEO AI ( MAINTENANCE )">NEO AI ( MAINTENANCE )</h2>
+    <p class="cert-caption">Terminal chat statis — belum terhubung ke API AI mana pun. Isi jawabannya manual di <code>script.js</code>.</p>
+    <div class="neo-chatbox">
+      <div class="neo-chatbox-header">
+        <span class="neo-dot"></span> neo — offline / manual mode
+      </div>
+      <div class="neo-chatbox-log" id="neo-log"></div>
+      <form class="neo-chatbox-inputrow" id="neo-form" autocomplete="off">
+        <input type="text" id="neo-input" placeholder="ketik pesan ke Neo...">
+        <button type="submit">KIRIM</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- KONTAK -->
+  <section id="kontak" class="panel">
+    <h2 class="panel-title" data-decrypt="CONTACT_ME">CONTACT_ME</h2>
+    <ul class="data-list contact-list">
+      <li>
+        <span class="key">WhatsApp</span><span class="sep">:</span>
+        <span class="val"><a href="https://wa.me/628816713132" target="_blank" rel="noopener">wa.me/628816713132</a></span>
+      </li>
+      <li>
+        <span class="key">Gmail</span><span class="sep">:</span>
+        <span class="val"><a href="mailto:agathaarchilles@gmail.com">agathaarchilles@gmail.com</a></span>
+      </li>
+      <li>
+        <span class="key">Instagram</span><span class="sep">:</span>
+        <span class="val"><a href="https://instagram.com/agathaarchilles" target="_blank" rel="noopener">@agathaarchilles</a></span>
+      </li>
+    </ul>
+  </section>
+
+  <footer id="footer">
+    <p>&gt; koneksi aman ditutup. terima kasih sudah berkunjung, operator.</p>
+  </footer>
+
+</main>
+
+<!-- ============================================ -->
+<!-- MODE TERMINAL — tampilan command-line penuh -->
+<!-- ============================================ -->
+<section id="terminal-mode" hidden>
+  <div class="terminal-box">
+    <p class="term-line term-hint">Selamat datang di mode terminal. Ketik "help" untuk daftar perintah.</p>
+    <div id="terminal-output"></div>
+    <div id="terminal-inputline">
+      <span class="term-static-prompt">agatha@portofolio:~$</span>
+      <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

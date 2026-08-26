@@ -1,0 +1,246 @@
+/* ================================================
+   KALKULATOR — TEMA MATRIX
+   ================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #050805;
+  --paper: #0a0f0a;
+  --ink: #eafff0;
+  --ink-soft: #1c8a3d;
+  --line: #0d3b1f;
+  --accent: #39ff6a;
+  --danger: #ff3355;
+  --radius: 6px;
+  --serif: 'Share Tech Mono', monospace;
+  --sans: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#matrix-rain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 18px 80px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid var(--accent);
+  padding: 6px 14px;
+  border-radius: var(--radius);
+  transition: 0.3s;
+}
+.back-link:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 14px;
+  margin-bottom: 22px;
+}
+header h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 26px;
+  margin: 0;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(57,255,106,0.3);
+}
+header .tanggal {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.tab-btn {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  border-radius: var(--radius);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.tab-btn.active {
+  background: var(--accent);
+  color: #000;
+}
+.tab-btn:not(.active):hover {
+  background: rgba(57,255,106,0.1);
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ===== KALKULATOR EXPERT ===== */
+.calc-box {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 0 30px rgba(57,255,106,0.05);
+  margin-bottom: 20px;
+}
+.calc-box h3 {
+  font-family: var(--serif);
+  color: var(--accent);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+#calcDisplay {
+  width: 100%;
+  padding: 14px 16px;
+  background: #020402;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--accent);
+  font-family: var(--serif);
+  font-size: 28px;
+  text-align: right;
+  margin-bottom: 16px;
+  min-height: 60px;
+}
+
+.expert-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+.expert-grid button {
+  padding: 14px 8px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.expert-grid button:hover {
+  border-color: var(--accent);
+  background: rgba(57,255,106,0.08);
+}
+.expert-grid .func {
+  color: #35c1ff;
+  font-size: 13px;
+}
+.expert-grid .operator {
+  color: var(--accent);
+}
+.expert-grid .equals {
+  background: var(--accent);
+  color: #000;
+  font-weight: 700;
+}
+.expert-grid .equals:hover {
+  background: #2ecc71;
+}
+.expert-grid .clear {
+  color: var(--danger);
+}
+
+/* ===== KONVERSI ===== */
+.konversi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.konversi-grid label {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+.konversi-grid input, .konversi-grid select {
+  width: 100%;
+  padding: 10px;
+  background: #020402;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+}
+.konversi-grid input:focus, .konversi-grid select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.konversi-grid .simpan {
+  grid-column: span 2;
+  padding: 12px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  border-radius: var(--radius);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.konversi-grid .simpan:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+#progHasil p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+#progHasil strong {
+  color: var(--ink-soft);
+}
+
+footer {
+  text-align: center;
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+  .konversi-grid { grid-template-columns: 1fr; }
+  .konversi-grid .simpan { grid-column: span 1; }
+  .expert-grid button { padding: 12px 4px; font-size: 13px; }
+  .expert-grid .func { font-size: 11px; }
+}
