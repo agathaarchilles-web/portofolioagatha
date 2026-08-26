@@ -23,7 +23,7 @@
     <div class="login-body">
       <p class="boot-line">[SYSTEM] Menginisialisasi protokol otentikasi...</p>
       <p class="boot-line">[SYSTEM] Enkripsi kanal AES-256 : <span class="ok">OK</span></p>
-      <p class="boot-line">[SYSTEM] Silahkan masukkan akun anda<span class="cursor-blink">_</span></p>
+      <p class="boot-line">[SYSTEM] Menunggu kredensial operator<span class="cursor-blink">_</span></p>
 
       <form id="login-form" autocomplete="off">
         <label for="username">USERNAME</label>
@@ -50,7 +50,7 @@
   <nav id="navbar">
     <span class="nav-logo">&gt; whoami</span>
     <div class="nav-links">
-      <a href="#biodata" data-decrypt="biodata">BIODATA</a>
+      <a href="#biodata" data-decrypt="biodata">biodata</a>
       <a href="#mybini" data-decrypt="mybini">my bini gueh</a>
       <a href="#cita-cita" data-decrypt="tujuan">tujuan</a>
       <a href="#sertifikat" data-decrypt="sertifikat">SERTIFIKAT GW</a>
@@ -65,12 +65,18 @@
 
   <!-- HERO -->
   <header id="hero">
-    <p class="hero-eyebrow">[ akses diberikan — selamat datang, Agatha ]</p>
+    <p class="hero-eyebrow">[ akses diberikan — selamat datang, operator ]</p>
+    <h1 class="glitch" data-text="MUHAMMAD ALARIC ARYA SAKHI">MUHAMMAD ALARIC ARYA SAKHI</h1>
+    <p class="hero-sub" id="typewriter"></p>
+    <div class="hero-quicklinks">
+      <a href="#biodata" class="quick-btn">01_ Buka Biodata</a>
+      <a href="#mybini" class="quick-btn">02_ Buka My Bini Gueh</a>
+    </div>
   </header>
 
   <!-- BIODATA -->
   <section id="biodata" class="panel">
-    <h2 class="panel-title" data-decrypt="BIODATA AGATHA">BIODATA AGATHA</h2>
+    <h2 class="panel-title" data-decrypt="BIODATA_OPERATOR">BIODATA_OPERATOR</h2>
     <ul class="data-list">
       <li><span class="key">Nama</span><span class="sep">:</span><span class="val">Muhammad Alaric Arya Sakhi</span></li>
       <li><span class="key">Kelas</span><span class="sep">:</span><span class="val">X PPLG 1</span></li>
@@ -80,7 +86,7 @@
 
   <!-- MY BINI GUEH -->
   <section id="mybini" class="panel panel-alt">
-    <h2 class="panel-title" data-decrypt="MY_BINI">MY BINI GUEH</h2>
+    <h2 class="panel-title" data-decrypt="MY BINI">MY BINI GUEH</h2>
     <div class="columbina-wrap">
       <div class="photo-frame">
 <a href="kalkulator.html">
@@ -129,7 +135,7 @@
 
   <!-- CHATBOX NEO -->
   <section id="neo" class="panel panel-alt">
-    <h2 class="panel-title" data-decrypt="NEO AI ( MAINTENANCE )">NEO AI ( MAINTENANCE )</h2>
+    <h2 class="panel-title" data-decrypt="NEO_AI">NEO_AI</h2>
     <p class="cert-caption">Terminal chat statis — belum terhubung ke API AI mana pun. Isi jawabannya manual di <code>script.js</code>.</p>
     <div class="neo-chatbox">
       <div class="neo-chatbox-header">
