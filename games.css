@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #050805;
+  --bg-panel: #0a0f0a;
+  --green: #39ff6a;
+  --green-dim: #1c8a3d;
+  --green-faint: #0d3b1f;
+  --white: #eafff0;
+  --red: #ff3355;
+  --blue: #35c1ff;
+  --font-display: 'Share Tech Mono', monospace;
+  --font-body: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--green); color: #000; }
+
+#matrix-rain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.back-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--green);
+  text-decoration: none;
+  font-size: 0.8rem;
+  border: 1px solid var(--green);
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.back-link:hover {
+  background: var(--green);
+  color: #000;
+}
+
+.glitch {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--green);
+  text-shadow: 0 0 20px rgba(57,255,106,0.4);
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.glitch::before {
+  color: var(--red);
+  clip-path: inset(0 0 60% 0);
+  animation: glitch-1 3s infinite linear alternate;
+}
+
+.glitch::after {
+  color: var(--blue);
+  clip-path: inset(40% 0 0 0);
+  animation: glitch-2 3s infinite linear alternate;
+}
+
+@keyframes glitch-1 {
+  0%, 90%, 100% { opacity: 0; transform: translate(0); }
+  92% { opacity: 0.7; transform: translate(-3px, 2px); }
+  95% { opacity: 0.7; transform: translate(3px, -2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 88%, 100% { opacity: 0; transform: translate(0); }
+  90% { opacity: 0.7; transform: translate(3px, 2px); }
+  94% { opacity: 0.7; transform: translate(-3px, -2px); }
+}
+
+.subtitle {
+  color: var(--green-dim);
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.game-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--green-faint);
+  border-radius: 12px;
+  padding: 25px;
+  text-decoration: none;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.game-card:hover {
+  border-color: var(--green);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(57,255,106,0.2);
+}
+
+.game-number {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 0.8rem;
+  color: var(--green-dim);
+}
+
+.game-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.game-card h3 {
+  font-family: var(--font-display);
+  color: var(--green);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.game-card p {
+  color: var(--green-dim);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .games-grid { grid-template-columns: 1fr; }
+  .wrap { padding: 20px 15px 40px; }
+  .game-card { padding: 20px; }
+  .back-link { position: static; display: inline-block; margin-bottom: 20px; }
+}
