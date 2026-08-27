@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
 
 body {
   background: #050805;
@@ -16,6 +20,9 @@ body {
   border: 2px solid #39ff6a;
   border-radius: 8px;
   box-shadow: 0 0 30px rgba(57,255,106,0.3);
+  max-width: 95vw;
+  max-height: 80vh;
+  object-fit: contain;
 }
 
 .game-hud {
@@ -31,6 +38,40 @@ body {
   padding: 10px 20px;
   border-radius: 8px;
   color: #39ff6a;
+}
+
+.mobile-controls {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 40px;
+  z-index: 15;
+}
+
+@media (max-width: 768px) {
+  .mobile-controls {
+    display: flex;
+  }
+}
+
+.mobile-controls button {
+  background: rgba(57, 255, 106, 0.2);
+  border: 2px solid #39ff6a;
+  color: #39ff6a;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.mobile-controls button:active {
+  background: #39ff6a;
+  color: #000;
 }
 
 .game-overlay {
