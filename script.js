@@ -431,3 +431,15 @@ function initPortfolioEffects() {
   setupTerminalMode();
   setupNeoChat();
 }
+
+
+
+
+// Tambahkan kode ini di dalam event listener penanganan form login saat login BERHASIL
+if (loginBerhasil) { // sesuaikan dengan kondisi IF login milikmu
+    sessionStorage.setItem('isLoggedIn', 'true');
+    
+    // Kode kamu yang menyembunyikan login screen & menampilkan portfolio...
+    document.getElementById('login-screen').hidden = true;
+    document.getElementById('portfolio').hidden = false;
+}
