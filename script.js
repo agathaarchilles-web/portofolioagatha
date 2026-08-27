@@ -433,7 +433,17 @@ function initPortfolioEffects() {
 }
 
 
-
+// Cek otomatis saat halaman index.html dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('isLoggedIn') === 'true') {
+        // Jika sudah pernah login, langsung tampilkan portfolio tanpa perlu login lagi
+        const loginScreen = document.getElementById('login-screen');
+        const portfolio = document.getElementById('portfolio');
+        
+        if (loginScreen) loginScreen.hidden = true;
+        if (portfolio) portfolio.hidden = false;
+    }
+});
 
 // Tambahkan kode ini di dalam event listener penanganan form login saat login BERHASIL
 if (loginBerhasil) { // sesuaikan dengan kondisi IF login milikmu
