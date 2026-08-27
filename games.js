@@ -1,3 +1,10 @@
+// Proteksi Halaman: Cek apakah user sudah login
+if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+    // Jika belum login, alihkan (redirect) paksa ke halaman login
+    window.location.href = "index.html";
+}
+
+// Skrip game lainnya di bawah ini...
 (function matrixRain() {
   const canvas = document.getElementById('matrix-rain');
   const ctx = canvas.getContext('2d');
